@@ -1,0 +1,7 @@
+<?xml version ="" encoding="utf-8"?>
+<shapes xmlns:android="http://schemas.android.com/apk/res/android">
+    <shape android:name="bg_color">
+    <!-- añadir imagen para splash -->
+        <solid android:color="#2DDF21" />
+    </shape>
+</shapes>
