@@ -80,10 +80,10 @@ class LoginApp extends State<login> {
       biometrico();
     });*/
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.green),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Inicio de sesión"),
+          title: Text("Inicio de sesión"),
+          backgroundColor: Colors.amber[300],
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -95,7 +95,7 @@ class LoginApp extends State<login> {
                     width: 180,
                     height: 200,
                     child: Image.asset(
-                      'imgs/bnd.png',
+                      'imgs/Login.jpg',
                       width: 240, //ancho
                       height: 100, //alto
                       fit: BoxFit.cover,
@@ -135,7 +135,7 @@ class LoginApp extends State<login> {
                 width: 240, //ancho
                 decoration: BoxDecoration(
                   //boton de registro
-                    color: Colors.green,
+                    color: Colors.amber,
                     borderRadius: BorderRadius.circular(20)),
                 child: TextButton(
                   onPressed: () async{
@@ -194,7 +194,7 @@ class LoginApp extends State<login> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom( //boton huella
                     minimumSize: Size(50, 50),
-                    primary: Colors.green,
+                    primary: Colors.amber,
                   ),
                   onPressed: () async {
                     print("dentro");

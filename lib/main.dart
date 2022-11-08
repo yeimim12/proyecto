@@ -47,7 +47,7 @@ class layout extends State<clase> {
                   child: const Text(
                    'BOOKSTORE.SAS',
                     style: TextStyle(
-                      color: Colors.redAccent,
+                      color: Colors.amber,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -114,12 +114,12 @@ class layout extends State<clase> {
     );
 
     return MaterialApp(
-      title: '¡Bienvenido AgriStore lo espera!',
+      title: '¡Bienvenido BookStore lo espera!',
       home: Scaffold(
         appBar: AppBar(
           title: Text('¡BIENVENIDO!'
           ),
-          backgroundColor: Colors.red[300],
+          backgroundColor: Colors.amber[300],
         ),
         body: ListView(
 
@@ -174,7 +174,7 @@ class ShareCom extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.green),
+      theme: ThemeData(primarySwatch: Colors.amber),
       home: Scaffold(
         appBar: AppBar(
           title: const Text("Páginas oficiales de AgriStore"),
