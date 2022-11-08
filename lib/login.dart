@@ -57,8 +57,6 @@ class LoginApp extends State<login> {
                 MaterialPageRoute(builder: (context) => Soporte()),);
             }
 
-
-
             print(cursor.id);
 
 
