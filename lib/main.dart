@@ -45,17 +45,18 @@ class layout extends State<clase> {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: const Text(
-                    'AGRISTORE.SAS',
+                   'BOOKSTORE.SAS',
                     style: TextStyle(
-                      color: Colors.green,
+                      color: Colors.redAccent,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Text(
-                  'AgriStore es una empresa que se dedica a la distribución de frutas y verduras,'
-                      ' en el municipio de ubaté, principalmente de la plaza de mercado.'
-                      ' ',
+                  'BookStore es una empresa que se dedica a la distribución de materiales escolares y de'
+                      ' oficina de todo tipo, para la población en general '
+                      ' del municipio de ubaté, '
+                      ' principalmente de la calle del comercio.',
                   style: TextStyle(
                     color: Colors.grey[500],
                   ),
@@ -114,17 +115,17 @@ class layout extends State<clase> {
 
     return MaterialApp(
       title: '¡Bienvenido AgriStore lo espera!',
-      theme: ThemeData(primarySwatch: Colors.green),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('¡BIENVENIDO!'
+          title: Text('¡BIENVENIDO!'
           ),
+          backgroundColor: Colors.red[300],
         ),
         body: ListView(
 
           children: [
             Image.asset(
-              'imgs/AgriStore.png',
+              'imgs/Logo1.png',
               width: 200,
               height: 240,
               fit: BoxFit.cover,
