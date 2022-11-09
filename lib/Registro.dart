@@ -72,10 +72,10 @@ class RegistroApp extends State<Registro> {
   var flag = false;
   Widget build(BuildContext context){
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.green),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Registro de usuario"),
+          title: Text("Registro de usuario"),
+             backgroundColor: Colors.amber[300],
         ),
 
         body: SingleChildScrollView(
@@ -87,7 +87,7 @@ class RegistroApp extends State<Registro> {
               width: 200,
               height: 60,
               child: Image.asset(
-                'imgs/reg.png',
+                'imgs/Regis.png',
                 width: 300, //ancho
                 height: 100, //alto
                 fit: BoxFit.cover,
