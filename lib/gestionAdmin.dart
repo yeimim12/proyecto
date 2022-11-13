@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.amber[300],
         title: const Text('Administrar usuarios'),
       ),
       // Using StreamBuilder to display all products from Firestore in real-time
@@ -178,7 +178,7 @@ class _HomePageState extends State<HomePage> {
         focusColor: Colors.green,
         onPressed: () => _createOrUpdate(),
         child: const Icon(Icons.add),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.amber,
       ),
     );
   }

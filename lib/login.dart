@@ -54,7 +54,7 @@ class LoginApp extends State<login> {
             }else{
               print("Pantalla de usuario");
               Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Soporte()),);
+                MaterialPageRoute(builder: (context) => HomePage()),);
             }
 
             print(cursor.id);
