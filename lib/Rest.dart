@@ -60,10 +60,10 @@ class RestD extends State<Rest> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.green),
       home: Scaffold(
       appBar: AppBar(
         title: Text('Consumir servicio'),
+        backgroundColor: Colors.amber[300],
       ),
       body: SingleChildScrollView(
         child: Center(
