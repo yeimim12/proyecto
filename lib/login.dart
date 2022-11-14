@@ -2,9 +2,11 @@ import "dart:async";
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:proyecto/Roles/Admin.dart';
+import 'package:proyecto/Servicios.dart';
 import 'Registro.dart';
 import 'Rest.dart';
-import 'package:proyecto/Soporte.dart';
+import 'package:proyecto/Vista/Soporte.dart';
 import 'package:proyecto/main.dart';
 import 'Inicio.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,7 +16,7 @@ import 'package:local_auth/auth_strings.dart';
 import 'package:local_auth/local_auth.dart';
 import 'Rest.dart';
 import 'Geolocalizacion.dart';
-import 'gestionAdmin.dart';
+import 'Vista/ListadoUsuarios.dart';
 import 'firebase_options.dart';
 
 class login extends StatefulWidget {
@@ -37,39 +39,22 @@ class LoginApp extends State<login> {
 
       if (Usuario.docs.length != 0) {
         for (var cursor in Usuario.docs) {
-          //buscar datos en bd
-          print ("bdd");
-          // mensaje('Usuario', cursor.get('User'));
           if (User.text == cursor.get('User')) {
-            print ("user");
-            // mensaje('Mensaje', 'Dato encontrado');
-            if (Password.text == cursor.get('password'));
-            print ("contra");
-            idUser= cursor.id.toString();
-            flag=true;
-            if(cursor.get("Rol")=='Admin'){
-              print("Información");
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => HomePage()),);
-            }else{
-              print("Pantalla de usuario");
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => HomePage()),);
+            print (cursor.get('User'));
+            //print (cursor.id);
+            if (Password.text == cursor.get('password')){
+              if(cursor.get("Rol")=='Admin'){
+                print (cursor.get('User'));
+                Navigator.push(context,MaterialPageRoute(builder: (context) => Admin()),);
+              }else if(cursor.get("Rol")=='Usuario' && cursor.get("estado")==true){
+                Navigator.push(context,MaterialPageRoute(builder: (context) => Soporte()),);
+              }
             }
-
-            print(cursor.id);
-
-
-
-
           }
         }
       }
-      if (!flag) {
-        mensajeG('Mensaje', 'dato no encontrado');
-      }
   } catch (e) {
-  mensajeG('Error', e.toString());
+    mensajeG('Error', e.toString());
   }
 }
 

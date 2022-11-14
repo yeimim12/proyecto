@@ -3,14 +3,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/rendering.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class ListaUsuarios extends StatefulWidget {
+  const ListaUsuarios({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _ListaUsuarios createState() => _ListaUsuarios();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ListaUsuarios extends State<ListaUsuarios> {
   // text fields' controllers
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _priceController = TextEditingController();
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
     if (documentSnapshot != null) {
       action = 'update';
       _nameController.text = documentSnapshot['User'];
-      _priceController.text = documentSnapshot['Pass'];
+      _priceController.text = documentSnapshot['Password'];
       _rolController.text = documentSnapshot['Rol'];
       print("hola");
     }
@@ -84,14 +84,14 @@ class _HomePageState extends State<HomePage> {
                       if (action == 'create') {
                         // Persist a new product to Firestore
                         await _productss
-                            .add({"User": name, "Pass": price, "Rol": rol});
+                            .add({"User": name, "Password": price, "Rol": rol});
                       }
 
                       if (action == 'update') {
                         // Update the product
                         await _productss
                             .doc(documentSnapshot!.id)
-                            .update({"User": name, "Pass": price, "Rol": rol});
+                            .update({"User": name, "Password": price, "Rol": rol});
                       }
 
                       // Clear the text fields
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amber[300],
+        backgroundColor: Colors.green,
         title: const Text('Administrar usuarios'),
       ),
       // Using StreamBuilder to display all products from Firestore in real-time
@@ -178,7 +178,7 @@ class _HomePageState extends State<HomePage> {
         focusColor: Colors.green,
         onPressed: () => _createOrUpdate(),
         child: const Icon(Icons.add),
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.green,
       ),
     );
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto/Geolocalizacion.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:proyecto/Vista/ListaUsuarios.dart';
+import 'package:proyecto/Vista/ListadoUsuarios.dart';
 import 'firebase_options.dart';
 import 'Registro.dart';
 import 'login.dart';
@@ -80,23 +82,34 @@ class layout extends State<clase> {
     Widget buttonSection = Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-
           IconButton(onPressed: (){
             print("Inicio de sesión");
             Navigator.push(context, MaterialPageRoute(builder: (_) => login()));
-    }, icon: Icon(Icons.account_circle)),
+          }, 
+            icon: Icon(Icons.account_circle)
+          ),
 
         IconButton(onPressed: (){
           print("Registrarse");
-          Navigator.push(context,
-              MaterialPageRoute(builder: (_) => Registro()));
-        }, icon: Icon(Icons.app_registration)),
+          Navigator.push(context,MaterialPageRoute(builder: (_) => Registro()));
+        }, 
+          icon: Icon(Icons.app_registration)
+        ),
 
         IconButton(onPressed: (){
           print("Información");
           Navigator.push(context,
             MaterialPageRoute(builder: (context) => Geolocalizacion('')),);
-        }, icon: Icon(Icons.location_on))
+        }, 
+          icon: Icon(Icons.location_on)
+        ),
+        
+        IconButton(onPressed: (){
+          Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ListaUsuarios()),);
+        }, 
+          icon: Icon(Icons.email)
+        )
 
 
       ],
