@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/rendering.dart';
 import 'package:proyecto/DTO/UsuariosDTO.dart';
+import 'package:proyecto/Rest.dart';
 
 class Soporte extends StatefulWidget {
   const Soporte({Key? key}) : super(key: key);
@@ -20,9 +21,10 @@ class SoporteApp extends State<Soporte> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(217, 217, 217, 1.0),
       appBar: AppBar(
-        title: Text('Productos'),
+        title: Text('Mis Utiles escolares'),
         backgroundColor: const Color.fromRGBO(40, 75, 99, 1.0),
       ),
+     
       body: Container(
         child: Center(
           child: StreamBuilder(

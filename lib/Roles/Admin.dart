@@ -65,7 +65,7 @@ class MenuAdmin extends State<Admin> {
                   );
                 },
                 child: Text(
-                  'Productos',
+                  'Tienda',
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),

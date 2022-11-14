@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto/Crud.dart';
 import 'package:proyecto/Geolocalizacion.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:proyecto/Vista/ListaUsuarios.dart';
@@ -106,7 +107,7 @@ class layout extends State<clase> {
         
         IconButton(onPressed: (){
           Navigator.push(context,
-            MaterialPageRoute(builder: (context) => ListaUsuarios()),);
+            MaterialPageRoute(builder: (context) => Crud()),);
         }, 
           icon: Icon(Icons.email)
         )

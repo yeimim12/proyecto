@@ -49,9 +49,20 @@ class LoginApp extends State<login> {
               }else if(cursor.get("Rol")=='Usuario' && cursor.get("estado")==true){
                 Navigator.push(context,MaterialPageRoute(builder: (context) => Soporte()),);
               }
+              else{
+                 print("Pantalla de usuario");
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Soporte()),);
+              }
+              print(cursor.id);
+
+      
             }
           }
         }
+        if (!flag) {
+        mensajeG('Mensaje', 'dato no encontrado');
+      }
       }
   } catch (e) {
     mensajeG('Error', e.toString());
