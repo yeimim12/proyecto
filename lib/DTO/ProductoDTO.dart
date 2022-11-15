@@ -3,6 +3,6 @@ class productoDTO{
   String nombreProducto = '';
   String cantidadProducto = '';
   String precioProducto =  '';
-  String fechaProducto = '';
-  String estadoProducto = '';
+  String descripcionProducto = '';
+  String estadoProducto = 'A';
 }

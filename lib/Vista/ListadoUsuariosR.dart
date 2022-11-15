@@ -4,14 +4,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/rendering.dart';
 import 'package:proyecto/DTO/UsuariosDTO.dart';
 
-class ListadoUsuarios extends StatefulWidget {
-  const ListadoUsuarios({Key? key}) : super(key: key);
-
+class ListadoUsuariosR extends StatefulWidget {
   @override
   _Usuarios  createState() => _Usuarios();
 }
 
-class _Usuarios extends State<ListadoUsuarios> {
+class _Usuarios extends State<ListadoUsuariosR> {
   UsuariosDTO usuarioObjeto = UsuariosDTO();
 
   TextEditingController usuario = TextEditingController();
@@ -19,7 +17,9 @@ class _Usuarios extends State<ListadoUsuarios> {
   TextEditingController idU = TextEditingController();
 
   final firebase = FirebaseFirestore.instance;
-
+  DateTime selectedDate = DateTime.now();
+  var _currentSelectedDate;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -241,21 +241,14 @@ class _Usuarios extends State<ListadoUsuarios> {
         "Rol":rol,
         "estado": true,
       });
-      //mensajeGeneral('Editado', 'Se actualizó la información del usuario');
+      mensajeGeneral('Editado', 'Se actualizó la información del usuario');
     }catch(e){
       print('ERROR-> '+e.toString());
     }
   }
 
   deleteUser(String idC, bool estadoC, String usuarioC, String rolC) async{
-    Future<void> _deleteProduct(String productId) async {
-    await firebase.collection("Usuario").doc(productId).delete();
-
-    // Show a snackbar
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('You have successfully deleted a product')));
-  }
-   /* try{
+    try{
       await firebase
           .collection("Usuario")
           .doc(idC)
@@ -268,7 +261,7 @@ class _Usuarios extends State<ListadoUsuarios> {
     }catch(e){
       print('ERROR-> '+e.toString());
     }
-  }*/
+  }
 
   void mensajeGeneral(String titulo, String mess) {
     showDialog(
@@ -283,7 +276,6 @@ class _Usuarios extends State<ListadoUsuarios> {
                     Navigator.of(context).pop();
                     usuario.clear();
                     rol.clear();
-                    idU.clear();
                   },
                   child:
                   Text("Aceptar"),
@@ -297,6 +289,5 @@ class _Usuarios extends State<ListadoUsuarios> {
             ],
           );
         });
-  }
   }
 }

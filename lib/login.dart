@@ -4,9 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:proyecto/Roles/Admin.dart';
 import 'package:proyecto/Servicios.dart';
+import 'package:proyecto/Vista/Soporte.dart';
 import 'Registro.dart';
 import 'Rest.dart';
-import 'package:proyecto/Vista/Soporte.dart';
 import 'package:proyecto/main.dart';
 import 'Inicio.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,7 +16,6 @@ import 'package:local_auth/auth_strings.dart';
 import 'package:local_auth/local_auth.dart';
 import 'Rest.dart';
 import 'Geolocalizacion.dart';
-import 'Vista/ListadoUsuarios.dart';
 import 'firebase_options.dart';
 
 class login extends StatefulWidget {
@@ -48,21 +47,13 @@ class LoginApp extends State<login> {
                 Navigator.push(context,MaterialPageRoute(builder: (context) => Admin()),);
               }else if(cursor.get("Rol")=='Usuario' && cursor.get("estado")==true){
                 Navigator.push(context,MaterialPageRoute(builder: (context) => Soporte()),);
-              }
-              else{
-                 print("Pantalla de usuario");
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Soporte()),);
-              }
-              print(cursor.id);
-
-      
+              } 
             }
           }
         }
-        if (!flag) {
-        mensajeG('Mensaje', 'dato no encontrado');
       }
+      if (!flag) {
+        mensajeG('Mensaje', 'dato no encontrado');
       }
   } catch (e) {
     mensajeG('Error', e.toString());

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto/Vista/AgregarProducto.dart';
-import 'package:proyecto/Vista/Soporte.dart';
-
-import '../Vista/ListadoUsuarios.dart';
+import 'package:proyecto/Vista/ListadoUsuariosR.dart';
+import 'package:proyecto/Vista/PaginaPrincipal.dart';
 
 
 class Admin extends StatefulWidget {
@@ -14,8 +13,8 @@ class MenuAdmin extends State<Admin> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hola usuario '),
-        backgroundColor: Colors.deepPurple,
+        title: Text('Bienvenido al menu del Administrador '),
+        backgroundColor: Colors.amber[300],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -24,10 +23,10 @@ class MenuAdmin extends State<Admin> {
               padding: EdgeInsets.only(left: 10, top: 40, right: 10, bottom: 0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple, minimumSize: Size(400, 50)),
+                    backgroundColor: Colors.amber, minimumSize: Size(400, 50)),
                 onPressed: () {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ListadoUsuarios())
+                    MaterialPageRoute(builder: (context) => ListadoUsuariosR())
                   );
                 },
                 child: Text(
@@ -41,7 +40,7 @@ class MenuAdmin extends State<Admin> {
               padding: EdgeInsets.only(left: 10, top: 40, right: 10, bottom: 0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple, minimumSize: Size(400, 50)),
+                    backgroundColor: Colors.amber, minimumSize: Size(400, 50)),
                 onPressed: () {
                   Navigator.push(context,
                     MaterialPageRoute(builder: (context) => AgregarProductos())
@@ -58,14 +57,14 @@ class MenuAdmin extends State<Admin> {
               padding: EdgeInsets.only(left: 10, top: 40, right: 10, bottom: 0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurple, minimumSize: Size(400, 50)),
+                    backgroundColor: Colors.amber, minimumSize: Size(400, 50)),
                 onPressed: () {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Soporte())
+                    MaterialPageRoute(builder: (context) => PaginaPrincipal())
                   );
                 },
                 child: Text(
-                  'Tienda',
+                  'Mis utiles escolares',
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),

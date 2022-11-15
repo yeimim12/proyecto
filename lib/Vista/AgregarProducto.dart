@@ -13,6 +13,7 @@ class ProductoApp extends State<AgregarProductos> {
   DateTime selectedDate = DateTime.now();
   var passwordHide = true;
   var ojo = Icons.visibility;
+  TextEditingController id = TextEditingController();
   TextEditingController producto = TextEditingController();
   TextEditingController precio = TextEditingController();
   TextEditingController cantidad = TextEditingController();
@@ -22,7 +23,8 @@ class ProductoApp extends State<AgregarProductos> {
 
   insertProduct() async {
     try {
-      await firebase.collection("Productos").doc().set({
+      await firebase.collection("ProductosR").doc().set({
+        'ID': id.text,
         "Producto": producto.text,
         "Precio": precio.text,
         "Cantidad": cantidad.text,

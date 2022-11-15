@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto/Crud.dart';
 import 'package:proyecto/Geolocalizacion.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:proyecto/Vista/ListaUsuarios.dart';
-import 'package:proyecto/Vista/ListadoUsuarios.dart';
+import 'package:proyecto/Vista/ListadoUsuariosR.dart';
+import 'package:proyecto/Vista/PaginaPrincipal.dart';
+import 'package:proyecto/Vista/Soporte.dart';
 import 'firebase_options.dart';
 import 'Registro.dart';
 import 'login.dart';
@@ -104,14 +104,6 @@ class layout extends State<clase> {
         }, 
           icon: Icon(Icons.location_on)
         ),
-        
-        IconButton(onPressed: (){
-          Navigator.push(context,
-            MaterialPageRoute(builder: (context) => Crud()),);
-        }, 
-          icon: Icon(Icons.email)
-        )
-
 
       ],
     );

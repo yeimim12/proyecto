@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/rendering.dart';
 import 'package:proyecto/DTO/UsuariosDTO.dart';
+import 'package:proyecto/Rest.dart';
+import 'package:proyecto/main.dart';
 
 class Soporte extends StatefulWidget {
   const Soporte({Key? key}) : super(key: key);
@@ -20,14 +22,49 @@ class SoporteApp extends State<Soporte> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(217, 217, 217, 1.0),
       appBar: AppBar(
-        title: Text('Productos'),
-        backgroundColor: const Color.fromRGBO(40, 75, 99, 1.0),
+        title: Text('Mis Utiles Escolares'),
+        backgroundColor: Color(0xFFFFD54F),
+      actions: [
+          IconButton(
+            onPressed: () async {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => MyApp()));
+            },
+            icon: const Icon(Icons.exit_to_app_outlined),
+          )
+        ],
       ),
+      drawer: Drawer(
+          child: ListView(
+            children: [
+              UserAccountsDrawerHeader(
+                  accountName: Text('Bienvenido'),
+                  accountEmail: Text('acb@gmail.com'),
+              ),
+              ListTile(
+                title: Text('Servicio rest'),
+                leading: Icon(Icons.settings),
+                onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => Rest()));
+                },
+              ),
+              ListTile(
+                title: Text('Tienda'),
+                leading: Icon(Icons.shopping_cart_sharp),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => Soporte()));
+                },
+              )
+            ],
+
+          ),
+
+        ),
       body: Container(
         child: Center(
           child: StreamBuilder(
             stream:
-            FirebaseFirestore.instance.collection("Productos").snapshots(),
+            FirebaseFirestore.instance.collection("ProductosR").snapshots(),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (!snapshot.hasData) return CircularProgressIndicator();
@@ -53,7 +90,7 @@ class SoporteApp extends State<Soporte> {
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 20,
-                                              color: Color.fromRGBO(40, 75, 99, 1.0)
+                                              color: Color(0xFFFFC107)
                                           ),
                                         )
                                     ),                                    
@@ -96,6 +133,7 @@ class SoporteApp extends State<Soporte> {
           ),
         ),
       ),
+      
     );
   }
 }
