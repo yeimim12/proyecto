@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:proyecto/main.dart';
 
 class AgregarProductos extends StatefulWidget {
+
   @override
   ProductoApp createState() => ProductoApp();
 }
@@ -128,7 +129,7 @@ class ProductoApp extends State<AgregarProductos> {
                     height: 55, //alto
                     width: 240, //ancho
                     decoration: BoxDecoration( //boton de registro
-                      color: Colors.green,
+                      color: Colors.amber,
                       borderRadius: BorderRadius.circular(20)),
                       child: TextButton(
                         onPressed: () {
@@ -165,8 +166,8 @@ void mensajeGeneral(String titulo, String mess) {
                   child:
                   Text("Aceptar"),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(40, 75, 99, 1.0),
-                      shadowColor: const Color.fromRGBO(60, 110, 113, 1.0),
+                      backgroundColor: const Color(0xFFFFC107),
+                      shadowColor: const Color(0xFFFFD54F),
                       elevation: 15,
                       minimumSize: Size(150, 40)
                   )

@@ -53,7 +53,7 @@ class LoginApp extends State<login> {
         }
       }
       if (!flag) {
-        mensajeG('Mensaje', 'dato no encontrado');
+        mensajeG('Mensaje', 'dato encontrado');
       }
   } catch (e) {
     mensajeG('Error', e.toString());

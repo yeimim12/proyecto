@@ -76,8 +76,8 @@ class GeolocalizacionApp extends State<Geolocalizacion> {
     });*/
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
         title: Text('Bienvenido ' + nombreUser),
+        backgroundColor: Colors.amber[300],
         actions: [
           FloatingActionButton(
             onPressed: () {},
@@ -125,7 +125,7 @@ class GeolocalizacionApp extends State<Geolocalizacion> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: Colors.purple,
+                    primary: Colors.amber,
                     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                     textStyle: TextStyle(
                         fontSize: 30,
@@ -141,7 +141,7 @@ class GeolocalizacionApp extends State<Geolocalizacion> {
                   enabled: false,
                   controller: local,
                   decoration: InputDecoration(
-                    fillColor: Colors.green,
+                    fillColor: Colors.amber,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Localización',

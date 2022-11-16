@@ -26,7 +26,7 @@ class _Usuarios extends State<ListadoUsuariosR> {
       backgroundColor: const Color.fromRGBO(217, 217, 217, 1.0),
       appBar: AppBar(
         title: Text('Administrar Usuarios'),
-        backgroundColor: const Color.fromRGBO(40, 75, 99, 1.0),
+        backgroundColor: const Color(0xFFFFD54F),
       ),
       body: Container(
         child: Center(
@@ -58,7 +58,7 @@ class _Usuarios extends State<ListadoUsuariosR> {
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 20,
-                                              color: Color.fromRGBO(40, 75, 99, 1.0)
+                                              color: Colors.black
                                           ),
                                         )
                                     ),                                    
@@ -152,10 +152,10 @@ class _Usuarios extends State<ListadoUsuariosR> {
                       hintStyle: TextStyle(color: Colors.black),
                       prefixIcon: const Icon(
                         Icons.person_add,
-                        color: Color.fromRGBO(60, 110, 113, 1.0),
+                        color: Color(0xFFFFD54F),
                       ),
                       focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Color.fromRGBO(40, 75, 99, 1.0)),
+                        borderSide: BorderSide(color: Color(0xFFFFC107)),
                       ),
                     ),
                   ),
@@ -177,10 +177,10 @@ class _Usuarios extends State<ListadoUsuariosR> {
                       hintStyle: TextStyle(color: Colors.black),
                       prefixIcon: const Icon(
                         Icons.verified_user_outlined,
-                        color: Color.fromRGBO(60, 110, 113, 1.0),
+                        color: Color(0xFFFFD54F),
                       ),
                       focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Color.fromRGBO(40, 75, 99, 1.0)),
+                        borderSide: BorderSide(color: Color(0xFFFFC107)),
                       ),
                     ),
                   ),
@@ -200,8 +200,8 @@ class _Usuarios extends State<ListadoUsuariosR> {
                         child:
                         Text("Aceptar"),
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color.fromRGBO(40, 75, 99, 1.0),
-                            shadowColor: const Color.fromRGBO(60, 110, 113, 1.0),
+                            backgroundColor: const Color(0xFFFFC107),
+                            shadowColor: Color(0xFFFFD54F),
                             elevation: 15,
                             minimumSize: Size(100, 40)
                         )
@@ -217,8 +217,8 @@ class _Usuarios extends State<ListadoUsuariosR> {
                         child:
                         Text("Cerrar"),
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color.fromRGBO(40, 75, 99, 1.0),
-                            shadowColor: const Color.fromRGBO(60, 110, 113, 1.0),
+                            backgroundColor: const Color(0xFFFFC107),
+                            shadowColor: const Color(0xFFFFD54F),
                             elevation: 15,
                             minimumSize: Size(100, 40)
                         )
@@ -280,8 +280,8 @@ class _Usuarios extends State<ListadoUsuariosR> {
                   child:
                   Text("Aceptar"),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(40, 75, 99, 1.0),
-                      shadowColor: const Color.fromRGBO(60, 110, 113, 1.0),
+                      backgroundColor: const Color(0xFFFFC107),
+                      shadowColor: const Color(0xFFFFD54F),
                       elevation: 15,
                       minimumSize: Size(150, 40)
                   )

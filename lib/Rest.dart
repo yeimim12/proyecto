@@ -1,155 +1,129 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
-import 'dart:async';
-//import 'package:http/http.dart';
-import 'package:http/http.dart' as http;
-import 'login.dart';
+import 'package:http/http.dart';
 
-
-class Rest extends StatefulWidget {
- // final String location;
-  //Rest(this.location);
+class ConsumoApi extends StatefulWidget {
   @override
-  RestD createState() => RestD();
+  State<ConsumoApi> createState() => _ConsumoApiState();
 }
 
-class RestD extends State<Rest> {
-  TextEditingController id=TextEditingController();
-  TextEditingController nombre=TextEditingController();
-  TextEditingController telefono=TextEditingController();
-  TextEditingController email=TextEditingController();
-  var dataHttp='';
+class _ConsumoApiState extends State<ConsumoApi> {
+  final controllerid = TextEditingController();
+  final controllernombre = TextEditingController();
+  final controllerapellido = TextEditingController();
+  final controllergenero = TextEditingController();
 
   consumirGet(var id) async {
+    print(id);
     try {
-      http.Response response =
-      await http.get(Uri.http('localhost//localhost/WebService/WebService/index.php?id=4'));
-      print(response.body);
-
+      Response response =
+      await get(Uri.parse('https://49df-2800-484-1389-c224-ccc8-6d95-33a4-ea8d.ngrok.io/api/index.php?id='+id));
       Map data = jsonDecode(response.body);
+      //print(data);
+      //print(response.statusCode.toString() + " Código de respuesta");
+      if (response.statusCode.toString() == '200') {
+        controllernombre.text = '${data['0']['nombre']}';
+        controllerapellido.text = '${data['0']['apellido']}';
+        controllergenero.text = '${data['0']['genero']}';
 
-      print(data);
-      print(response.statusCode.toString()+ " Código de respuesta");
-      nombre.text = '${data[0]['nombre']}';
-      telefono.text = '${data[0]['telefono']}';
-      email.text = '${data[0]['email']}';
+      }else{
+
+      }
+
+    }catch(e){
+      print('ERROR: '+e.toString());
+
     }
 
-    catch (e) { print("error------"+ e.toString());};
   }
 
-  consumirPost()async{
-    http.Response response = await http.post(Uri.http('http://localhost/WebService/WebService/index.php'),
-
-        body: {
-          'nombre':'a',
-          'telefono':'a',
-          'email':'a',
-        }
-    );
-    if (response.statusCode == 200) {
-      print("Se envio krnal");
-    } else {
-      print("No se envio krnal");
-    }
-
-    // List data = jsonDecode(response.body);
-    // print(data);
-    dataHttp= await response.body.toString();
-  }
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    const TextField_EdgeInsets = EdgeInsets.only(left: 20, top: 10, right: 20);
+    return Scaffold(
       appBar: AppBar(
-        title: Text('Consumir servicio'),
-        backgroundColor: Colors.amber[300],
+        title: const Text('Buscar'),
+        backgroundColor: Colors.amber[300]
       ),
       body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: TextField(
-                  controller: id,
-                  decoration: InputDecoration(
-                    fillColor: Colors.green,
+        child: Column(
+          children: [
+            // Imagen
+            Padding(
+              padding: const EdgeInsets.only(top: 25),
+              child: Center(
+                child: SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: Image.asset('images/Login.jpg'),
+                  // Attribution: "https://www.flaticon.com/free-icons/user" User icons created by Freepik - Flaticon
+                ),
+              ),
+            ),
+            // TextField 'ID'
+            Padding(
+              padding: TextField_EdgeInsets,
+              child: TextField(
+                controller: controllerid,
+                decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    labelText: 'ID',
-                    hintText: 'Digite id de usuario',
+                    labelText: 'Número de documento',
+                    hintText: 'Elija su número de documento'),
+              ),
+            ),
+            // Button Consultar
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Center(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom( //boton huella
+                    minimumSize: Size(50, 50),
+                    primary: Colors.amber,
                   ),
+                  onPressed: () => {consumirGet(controllerid.text)},
+                  child: const Text('Registrarse'),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: ElevatedButton(
-                  onPressed: () {
-                    consumirGet(id.text);
-                          //BDDDDD
-                  },
-                  child: Text('GET'),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: ElevatedButton(
-                  onPressed: () {
-                    consumirPost();
-                  },
-                  child: Text('POST'),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: TextField(
-                  enabled: false,
-                  controller: nombre,
-                  decoration: InputDecoration(
-                    fillColor: Colors.green,
+            ),
+            // TextField 'Nombre'
+            Padding(
+              padding: TextField_EdgeInsets,
+              child: TextField(
+                controller: controllernombre,
+                decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                     labelText: 'Nombre',
-                    hintText: 'Nombre',
-                  ),
-                ),
+                    hintText: 'Nombre'),
               ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: TextField(
-                  enabled: false,
-                  controller: telefono,
-                  decoration: InputDecoration(
-                    fillColor: Colors.green,
+            ),
+            // TextField 'No'
+            Padding(
+              padding: TextField_EdgeInsets,
+              child: TextField(
+                controller: controllerapellido,
+                decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    labelText: 'Teléfono',
-                    hintText: 'teléfono',
-                  ),
-                ),
+                    labelText: 'Correo',
+                    hintText: 'Correo'),
               ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: TextField(
-                  enabled: false,
-                  controller: email,
-                  decoration: InputDecoration(
-                    fillColor: Colors.green,
+            ),
+            Padding(
+              padding: TextField_EdgeInsets,
+              child: TextField(
+                controller: controllergenero,
+                decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    labelText: 'Email',
-                    hintText: 'Email',
-                  ),
-                ),
+                    labelText: 'Genero',
+                    hintText: 'Genero'),
               ),
-              Padding(padding: EdgeInsets.all(10),
-                  child: Text("Datos "+dataHttp))
-            ],
-          ),
+            ),
+          ],
         ),
       ),
-    ),
     );
   }
 }

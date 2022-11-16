@@ -54,7 +54,7 @@ class Pagina_PrincipalApp extends State<PaginaPrincipal> {
                 title: Text('Servicio rest'),
                 leading: Icon(Icons.settings),
                 onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => Rest()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => ConsumoApi()));
                 },
               ),
               ListTile(
@@ -155,6 +155,7 @@ class Pagina_PrincipalApp extends State<PaginaPrincipal> {
                                   deleteProduct(productoObjeto.idProducto, productoObjeto.nombreProducto, productoObjeto.precioProducto, productoObjeto.cantidadProducto, productoObjeto.descripcionProducto,productoObjeto.estadoProducto);
                                 },
                                 icon: const Icon(Icons.delete_rounded),
+                                color: Colors.red[300]
                               ),
                             ],
                           ),
@@ -254,7 +255,7 @@ class Pagina_PrincipalApp extends State<PaginaPrincipal> {
                       hintStyle: TextStyle(color: Colors.black),
                       prefixIcon: const Icon(
                         Icons.add_chart_outlined,
-                        color: Color(0xFFFFD54F),
+                        color: Color(0xFFFFCA28),
                       ),
                       focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFFFFD54F)),
@@ -279,7 +280,7 @@ class Pagina_PrincipalApp extends State<PaginaPrincipal> {
                       hintStyle: TextStyle(color: Colors.black),
                       prefixIcon: const Icon(
                         Icons.edit_attributes,
-                        color: Color(0xFFFFD54F),
+                        color: Color(0xFFFFCA28),
                       ),
                       focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFFFFD54F)),

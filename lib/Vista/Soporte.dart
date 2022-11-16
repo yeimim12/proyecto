@@ -45,7 +45,7 @@ class SoporteApp extends State<Soporte> {
                 title: Text('Servicio rest'),
                 leading: Icon(Icons.settings),
                 onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => Rest()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => ConsumoApi()));
                 },
               ),
               ListTile(
@@ -133,7 +133,11 @@ class SoporteApp extends State<Soporte> {
           ),
         ),
       ),
-      
+      floatingActionButton: const FloatingActionButton(
+          child: const Icon(Icons.shopping_cart_sharp),
+          backgroundColor: Color(0xFFFFC107),
+          onPressed: null,
+    )
     );
   }
 }
